@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.study.android.mytry">
+
+    <permission
+        android:name="com.study.android.mytry.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.study.android.mytry.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="com.study.android.mytry.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <application
+        android:name=".login.GlobalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".search.search_filer_main"></activity>
+        <activity android:name=".mypage.MemoInsert" />
+        <activity android:name=".challenge_private.CreationParticipation" />
+        <activity android:name=".challenge_private.CreationDetail" />
+        <activity android:name=".challenge_private.CreationQrCode" />
+        <activity android:name=".certification.Certificate_detail" />
+        <activity android:name=".search.guide" />
+        <activity android:name=".search.search_bookmark" />
+        <activity android:name=".search.search_filer" />
+        <activity android:name=".search.Search_detail" />
+        <activity android:name=".search.Search_detail1" />
+        <activity android:name=".certification.Certificate_movie" />
+        <activity android:name=".certification.Certificate_map" />
+        <activity android:name=".certification.Certificate_voice" />
+        <activity android:name=".certification.Certificate_gallery" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+
+        <activity
+            android:name=".search.PopupActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".cash.Cash_reward"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".cash.Cash_withdrawal"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".cash.Cash_deposit"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity android:name=".search.search_main" />
+        <activity android:name=".certification.Certificate_camera" />
+        <activity android:name=".challenge_private.CreationFifth" />
+        <activity android:name=".challenge_private.CreationFourth" />
+        <activity android:name=".challenge_private.CreationThrid" />
+        <activity android:name=".challenge_private.CreationSecond" />
+        <activity android:name=".challenge_private.CreationFirst" />
+        <activity android:name=".challenge_public.CreationPage" />
+        <activity android:name=".cash.Kakao_cash" />
+        <activity android:name=".login.Logout" />
+        <activity android:name=".login.Password" />
+        <activity android:name=".login.Login" />
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".login.JoinActivity" />
+        <activity android:name=".login.Intro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <!--
+        <meta-data
+                    android:name="com.kakao.sdk.AppKey"
+                    android:value="@string/kakao_app_key" />
+        -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakaoMap_app_key" />
+        <!--
+        <meta-data
+                    android:name="com.google.android.geo.API_KEY"
+                    android:value="@string/google_app_key" />
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver
+            android:name=".certification.AlarmReceiver"
+            android:value="@string/google_app_key" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

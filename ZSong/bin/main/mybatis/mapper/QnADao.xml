@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.study.springboot.dao.QnADao">
+
+	<select id="All_WaitQnA" resultType="com.study.springboot.dto.QnADto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+						from ( select * 
+							   from question 
+							   where question_state = 0
+							   order by question_num) A  
+		       			where <![CDATA[rownum <=]]> #{param1} ) B 
+		where B.num <![CDATA[>=]]> #{param2}
+   </select>
+	
+	<select id="WaitQnACount" resultType="int">
+		select count(*) from question where question_state = 0
+	</select>
+	
+	<update id="QnAsubmit">
+		update question set manager_id = #{param2}, question_answer = #{param3}, question_state = 1, anwser_date = <![CDATA[sysdate]]> where question_num = #{param1}
+	</update>
+
+
+	<select id="EndQnA" resultType="com.study.springboot.dto.QnADto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+						from ( select * 
+							   from question 
+							   where question_state = 1
+							   order by anwser_date) A  
+		       			where <![CDATA[rownum <=]]> #{param1} ) B 
+		where B.num <![CDATA[>=]]> #{param2}
+   </select>
+	
+	<select id="EndQnACount" resultType="int">
+		select count(*) from question where question_state = 1
+	</select>
+
+
+<!-- 	<select id="SelectQnAComment" resultType="com.study.springboot.dto.QnADto"> -->
+<!-- 		select * from question where question_num = #{param1} -->
+<!-- 	</select> -->
+	
+<!-- 	<update id="AddComment"> -->
+<!-- 		update question set manager_id = #{param2}, question_answer = #{param3}, question_state = 1 where question_num = #{param1} -->
+<!-- 	</update> -->
+	
+</mapper>

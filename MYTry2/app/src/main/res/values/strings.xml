@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MYTry</string>
+    <string name="kakao_app_key">234edc6e7969cf5388b751667dcd06a1</string>
+    <string name="kakaoMap_app_key">93e30c8b563416ba34678bb2731f6953</string>
+    <string name="google_app_key">AIzaSyBMh9BUyHMb3hzRQOZ09LnCJQ9h5BKzseo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ad_unit_id_1">ca-app-pub-3940256099942544/6300978111</string>
+</resources>

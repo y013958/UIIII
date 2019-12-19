@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".certification.Certificate_voice">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/certification_voice_back_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/main_back_button" />
+
+        <TextView
+            android:id="@+id/certification_voice_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/handon600g"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="하루 한 번 하늘보기"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/certification_voice_submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:fontFamily="@font/handon300g"
+            android:text="완료" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/recordBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:onClick="onBtn1Clicked"
+        android:text="녹음" />
+
+    <Button
+        android:id="@+id/recordStopBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onBtn2Clicked"
+        android:text="녹음중지" />
+
+    <Button
+        android:id="@+id/playBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onBtn3Clicked"
+        android:text="재생" />
+
+    <Button
+        android:id="@+id/playStopBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onBtn4Clicked"
+        android:text="재생중지" />
+
+    <EditText
+        android:id="@+id/certification_voice_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:ems="10"
+        android:fontFamily="@font/handon300g"
+        android:gravity="top"
+        android:hint="내용을 입력해주세요"
+        android:inputType="textPersonName" />
+
+</LinearLayout>

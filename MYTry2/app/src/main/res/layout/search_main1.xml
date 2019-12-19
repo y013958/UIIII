@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/custom_top_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/handon600g"
+                android:text="둘러보기"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/search_main_category_all1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="전체"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_life1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="생활"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_capability1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="역량"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_hobby1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="취미"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_health1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="건강"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_relationship1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="관계"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/search_main_category_asset1"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/xml_btn_s3"
+                    android:fontFamily="@font/handon300g"
+                    android:text="자산"
+                    android:textColor="@drawable/xml_text_s2"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonguide"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/xml_btn_s3"
+                android:text="한눈에 둘러보기\n 가이드를 클릭하세요"
+                android:textSize="15sp" />
+
+            <GridView
+                android:id="@+id/search_list1"
+                android:layout_width="match_parent"
+                android:layout_height="538dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:numColumns="2">
+
+            </GridView>
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/views451"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66bdbdbd" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F3F3"
+            app:adSize="BANNER"
+            app:adUnitId="@string/ad_unit_id_1" />
+
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/loginfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="80dp"
+        app:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/search_account" />
+
+</FrameLayout>

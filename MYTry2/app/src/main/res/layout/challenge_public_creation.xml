@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9E9E9"
+    android:orientation="vertical"
+    tools:context=".challenge_public.CreationPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF">
+
+            <Button
+                android:id="@+id/public_back_page"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/main_back_button"
+                android:onClick="onBackPressed" />
+
+            <TextView
+                android:id="@+id/challenge_public_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="챌린지 주제 제안"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/public_title_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:hint="챌린지 제목을 입력하세요."
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textViewh33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="카테고리 "
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/check_life"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="생활" />
+
+                    <CheckBox
+                        android:id="@+id/check_assets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="자산" />
+
+                    <CheckBox
+                        android:id="@+id/check_hobby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="취미" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/check_capability"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="역량" />
+
+                    <CheckBox
+                        android:id="@+id/check_health"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="건강" />
+
+                    <CheckBox
+                        android:id="@+id/check_relationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="관계" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/challenge_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="챌린지 인증 방법 (선택)"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/check_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="카메라" />
+
+                <CheckBox
+                    android:id="@+id/check_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="갤러리" />
+
+                <CheckBox
+                    android:id="@+id/check_voice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="음성 녹음 " />
+
+                <CheckBox
+                    android:id="@+id/check_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="지도" />
+
+                <CheckBox
+                    android:id="@+id/check_movie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="영화 정보" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/challenge_public_detail"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="50dp"
+            android:background="#FFFFFF"
+            android:hint="세부 내용 적는 부분"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/challenge_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/xml_main_button_round"
+            android:onClick="onFinishClick"
+            android:text="주제 제안하기"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</ScrollView>

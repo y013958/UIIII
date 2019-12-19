@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageViewsearch"
+            android:layout_width="220dp"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/certification_icon_egg" />
+
+        <ImageButton
+            android:id="@+id/imageButtonstar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/search_unstar" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="199dp"
+        android:layout_height="match_parent"
+        android:background="#FAF8F8"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="2dp">
+
+        <TextView
+            android:id="@+id/challenge_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/handon600g"
+            android:text="챌린지명"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/challenge_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/handon300g"
+            android:text="인증빈도 | 기간" />
+
+        <TextView
+            android:id="@+id/challenge_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/handon300g"
+            android:text="마감일자" />
+    </LinearLayout>
+
+</LinearLayout>

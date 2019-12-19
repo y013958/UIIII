@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.bootpay:client_android_java:3.0.55@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a447d8d673bee1ae1fbc6d8f647aee7d/client_android_java-3.0.55/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a447d8d673bee1ae1fbc6d8f647aee7d/client_android_java-3.0.55/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bootpay/client_android_java/3.0.55/48300808bebd896184532c1f6b7fc0d19bb5248b/client_android_java-3.0.55-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

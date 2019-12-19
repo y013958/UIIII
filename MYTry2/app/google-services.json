@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "175859706137",
+    "firebase_url": "https://singupin-dd242.firebaseio.com",
+    "project_id": "singupin-dd242",
+    "storage_bucket": "singupin-dd242.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175859706137:android:a732ba021a622d0aecfd88",
+        "android_client_info": {
+          "package_name": "com.study.android.mytry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175859706137-b282fuhn86huhbb7elme4spgots9lo20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfVzQP3DaL5JCCI9paN9MveOJ2mO1ck3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175859706137-b282fuhn86huhbb7elme4spgots9lo20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

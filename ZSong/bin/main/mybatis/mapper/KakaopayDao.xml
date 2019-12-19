@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.KakaopayDao">
+
+	<select id="cashList"
+		resultType="com.study.springboot.dto.CashListDto">
+		select * from cash_list where list_member_id = #{param1} order by
+		list_cash_num <![CDATA[desc]]>
+	</select>
+
+
+	<!--최종테이블에 데이터 삽입 -->
+	<insert id="cash">
+		insert into cash(cash_num,member_id,cash_result)
+		values (cash_seq.nextval, #{param1},#{param2})
+	</insert>
+
+
+	<!-- 입금내역 -->
+	<insert id="cash_deposit">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},0)
+	</insert>
+
+
+	<!-- 돈 출금삽입 -->
+	<insert id="withdrawal">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},1)
+	</insert>
+
+	<!-- 상금삽입 reward -->
+	<insert id="reward">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},2)
+	</insert>
+
+	<!-- 상금전환 reward -->
+	<insert id="change_reward">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},3)
+	</insert>
+
+
+	<!-- 비공개 챌린지 참가시 마일리지 뼤가기 -->
+	<insert id="participation">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},4)
+	</insert>
+	
+	<!-- 비공개 챌린지 취소시 마일리지 돌려줌  -->
+	<insert id="fee_delete">
+		insert into
+		cash_list(list_cash_num,list_member_id,list_cash_content,list_cash_check)
+		values (list_cash_seq.nextval, #{param1},#{param2},6)
+	</insert>
+	
+	
+	<!-- 돈 최종액 출력 -->
+	<select id="cash_result" resultType="int">
+		select cash_result from cash where member_id = #{param1}
+	</select>
+
+	<!-- 상금 최종액 출력 -->
+	<select id="reward_result" resultType="int">
+		select reward from cash where member_id = #{param1}
+	</select>
+
+	<!-- 돈 최종액 계산(입금) -->
+	<update id="cal_cash">
+		update cash set cash_result = cash_result + #{param2} where member_id =
+		#{param1}
+	</update>
+
+	<!-- 돈 최종액 계산(출금) -->
+	<update id="cash_withdrawal">
+		update cash set cash_result = cash_result - #{param2} where member_id =
+		#{param1}
+	</update>
+
+	<!-- 상금 최종액 계산(입금) -->
+	<update id="cal_reward">
+		update cash set reward = reward + #{param2} where member_id = #{param1}
+	</update>
+
+	<!-- 상금 최종액 계산(출금) -->
+	<update id="list_reward">
+		update cash set reward = reward - #{param2} where member_id = #{param1}
+	</update>
+
+	<!-- 상금 최종액 계산(출금) -->
+	<update id="total_money">
+		update cash set cash_result = cash_result + #{param2} where member_id =	#{param1}
+	</update>
+
+	
+</mapper>

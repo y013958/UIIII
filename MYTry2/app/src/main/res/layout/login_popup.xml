@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <!-- 타이틀바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewy4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF5D5D"
+            android:gravity="center"
+            android:text="둘러보기"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <!-- //end 타이틀바 -->
+
+    <!-- Notice -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCF8F5F5"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/txtText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:alpha="0.87"
+            android:gravity="center"
+            android:text="회원가입을 하지 않으면 \n 둘러보기만 사용가능합니다."
+            android:textColor="#000"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <!-- Notice -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FCFBFB" />
+
+    <!-- 닫기 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="center"
+            android:onClick="golookaround"
+            android:padding="16dp"
+            android:text="둘러보기"
+            android:textColor="#FF5D5D"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="center"
+            android:onClick="gologin"
+            android:padding="16dp"
+            android:text="로그인\n회원가입"
+            android:textColor="#FF5D5D"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <!--// 닫기 버튼 -->
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.LoginDao">
+   <insert id="UserJoin" >
+      insert into member(MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_NICKNAME)
+         values (member_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4} )
+   </insert>
+</mapper>

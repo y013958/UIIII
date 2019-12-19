@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.SerachDao">
+
+	<select id="serach_list" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2 and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+
+	<select id="category_hobby" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='취미' and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+
+	<select id="category_life" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='생활' and challenge_start <![CDATA[>= sysdate]]>  order by challenge_num DESC
+	</select>
+
+	<select id="category_capability" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='역량' and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+
+	<select id="category_health" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='건강' and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+
+	<select id="category_relationship" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='관계' and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+	
+	<select id="category_asset" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2  and  challenge_category ='자산' and challenge_start <![CDATA[>= sysdate]]> order by challenge_num DESC
+	</select>
+	
+	<select id="public_bookmark" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2 and challenge_start <![CDATA[>= sysdate]]> and challenge_num in (select challenge_num from bookmaker where member_id=#{param1})
+	</select>
+	
+	<select id="serach_filer_main" resultType="com.study.springboot.dto.Serach_ChallengeDto">
+	select * from challenge where challenge_public = 0 and challenge_state = 2 and challenge_start <![CDATA[>= sysdate]]> and  challenge_num in (select challenge_num from challenge where challenge_title like '%' || #{param1} || '%' or challenge_category like '%' || #{param1} || '%')
+	</select>
+	
+	<select id ="filter_key" resultType="com.study.springboot.dto.filterDto">
+	select interest_context from(select interest_context , DENSE_RANK() OVER (ORDER BY count(interest_context) DESC) from interest group by interest_context) where <![CDATA[rownum<=]]> 8
+	</select>
+	
+	<insert id="bookmake">
+		insert into 
+		bookmaker(bookmake_num,challenge_num,member_id)
+		values (bookmaker_seq.nextval, #{param1},#{param2})
+	</insert>
+		 
+	<delete id="bookmakeDelete">
+		delete from bookmaker where member_id = #{param2} and challenge_num = #{param1}
+	</delete>
+
+	<select id="bookmakerExist" resultType="int">
+		select NVL(count(*),0)
+		from (
+		select * from bookmaker
+		where member_id like #{param2}
+		and challenge_num = #{param1})	</select>
+		
+	<insert id="insert_filter">
+		insert into 
+		interest(interest_context)
+		values (#{param1})
+	</insert>
+</mapper>	

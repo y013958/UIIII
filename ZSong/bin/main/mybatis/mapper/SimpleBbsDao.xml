@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.study.springboot.dao.ISimpleBbsDao">
+
+   <select id="listDao" resultType="com.study.springboot.dto.SimpleBbsDto">
+      select * from userTBL where id = #{param1}
+   </select>
+   
+   <insert id="UserJoin">
+      insert into member(MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_NICKNAME)
+         values (member_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+   </insert>  
+   
+   <select id="login" resultType="com.study.springboot.dto.ManagerDto">
+      select * from manager where manager_id = #{param1} and manager_pw = #{param2}
+   </select>
+   
+   <update id="Manager_Login_Date">
+   		update manager set manager_access = <![CDATA[sysdate]]> where manager_id = #{param1}
+   </update>
+   
+   <select id="AllMember" resultType="com.study.springboot.dto.MemberDto">
+<!-- 		select * from ( select A.* from ( select * from member order by member_no ) A where member_no <![CDATA[<=]]> #{param1} ) B where B.member_no <![CDATA[>=]]> #{param2} -->
+select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 0 and member_withdraw is null 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2}
+   </select>
+
+   <select id="FindMemberId" resultType="com.study.springboot.dto.MemberDto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 0 and member_withdraw is null 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2} and B.member_id like '%' || #{param3} || '%'
+   </select>
+   <select id="FindMemberName" resultType="com.study.springboot.dto.MemberDto">
+				select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 0 and member_withdraw is null 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2} and B.member_name like '%' || #{param3} || '%'
+   </select>
+   
+   
+   
+      <select id="BanAllMember" resultType="com.study.springboot.dto.MemberDto">
+<!-- 		select * from ( select A.* from ( select * from member order by member_no ) A where member_no <![CDATA[<=]]> #{param1} ) B where B.member_no <![CDATA[>=]]> #{param2} -->
+select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 1 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2}
+   </select>
+
+   <select id="BanFindMemberId" resultType="com.study.springboot.dto.MemberDto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 1 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2} and B.member_id like '%' || #{param3} || '%'
+   </select>
+   <select id="BanFindMemberName" resultType="com.study.springboot.dto.MemberDto">
+				select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_blacklist = 1 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2} and B.member_name like '%' || #{param3} || '%'
+   </select>
+   
+   
+         <select id="WithdrawAllMember" resultType="com.study.springboot.dto.MemberDto">
+select * from ( select <![CDATA[rownum num]]>, A.* 
+				from ( select * 
+					   from member 
+					   where member_withdraw is not null 
+					   order by member_no) A  
+       			where <![CDATA[rownum <=]]> #{param1} ) B 
+where B.num <![CDATA[>=]]> #{param2}
+   </select>
+   
+   
+   
+   <select id="MemberCount" resultType="int">
+      select count(*) from member where member_blacklist = 0 and member_withdraw is null
+   </select>
+   
+   <select id="BannMemberCount" resultType="int">
+      select count(*) from member where member_blacklist = 1 and member_withdraw is null
+   </select>
+   
+   <select id="WithdrawMemberCount" resultType="int">
+      select count(*) from member where member_withdraw is not null
+   </select>
+
+   <select id="AllManager" resultType="com.study.springboot.dto.ManagerDto">
+		select * from ( select A.* from ( select * from manager order by manager_no ) A where manager_no <![CDATA[<=]]> #{param1} ) B where B.manager_no <![CDATA[>=]]> #{param2}
+   </select>
+   
+   <select id="ManagerCount" resultType="int">
+      select count(*) from manager
+   </select>
+   
+   <update id="ban">
+   		update member set member_blacklist = 1, member_black_reason = #{param2}, member_black_date = <![CDATA[sysdate]]> where member_id = #{param1}
+   </update>
+   
+   <update id="Unban">
+   		update member set member_blacklist = 0, member_black_reason = '', member_black_date = '' where member_id = #{param1}
+   </update>
+   
+   <update id="Withdraw">
+   		update member set member_withdraw = <![CDATA[sysdate]]> where member_id = #{param1}
+   </update>
+   <update id="UnWithdraw">
+   		update member set member_withdraw = '' where member_id = #{param1}
+   </update>
+   
+   <update id="grade_change">
+   		update manager set manager_grade = #{param2} where manager_id = #{param1}
+   </update>
+     
+     
+	<select id="join_date" resultType="com.study.springboot.dto.JoinDateDto">
+		select member_joindate, count(*) count from member where member_joindate between <![CDATA[sysdate]]> - 30 and <![CDATA[sysdate]]> group by member_joindate order by member_joindate
+	</select>
+	
+	<select id="join_count" resultType="int">
+		select sum(count) from ( select member_joindate, count(*) count from member where member_joindate <![CDATA[<=]]> #{param1} group by member_joindate)
+	</select>	
+    
+   	<select id="join_tcount" resultType="int">
+		select <![CDATA[nvl(sum(count),0)]]> from ( select member_joindate, count(*) count from member where member_joindate <![CDATA[<=]]> #{param1} and member_pw != <![CDATA['Kakao']]> group by member_joindate)
+	</select>	 
+     
+   	<select id="join_kcount" resultType="int">
+		select <![CDATA[nvl(sum(count),0)]]> from ( select member_joindate, count(*) count from member where member_joindate <![CDATA[<=]]> #{param1} and member_pw = <![CDATA['Kakao']]> group by member_joindate)
+	</select>
+
+	
+   
+</mapper>

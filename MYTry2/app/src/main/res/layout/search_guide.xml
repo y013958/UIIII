@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp">
+
+            <Button
+                android:id="@+id/guide_back_btn3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_back_button" />
+
+            <TextView
+                android:id="@+id/custom_top_title_bar"
+                android:layout_width="366dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/handon600g"
+                android:text="츄라이 진행방식"
+                android:textAlignment="center"
+                android:textColor="#FC050505"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/imageView12123"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/search_money" />
+
+                    <TextView
+                        android:id="@+id/aaaaa341234"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="참가비 걸고 도전"
+                        android:textAlignment="center"
+                        android:textColor="#FF5D5D"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="자신의 결심을 지키기 위해서 목표에 돈을 겁니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0C0000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView356"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="모든 챌린지는 챌린지마다의 정해져있는 금액에 맞춰 돈(마일리지)을 걸고 진행합니다. \n마일리지는 카카오페이를 통해 충전 가능합니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0F0101" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/imageView2345"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/search_camara" />
+
+                    <TextView
+                        android:id="@+id/aaaaa2345"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="인증하기"
+                        android:textAlignment="center"
+                        android:textColor="#FF5D5D"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView2345"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="오늘의 챌린지를 인증합니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0C0000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3234"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="챌린지마다 인증 규정이 다르기 때문에 인증 규정을 확인해주세요"
+                        android:textAlignment="viewStart"
+                        android:textColor="#0F0101" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/search_together" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="우리끼리의 챌린지"
+                        android:textAlignment="center"
+                        android:textColor="#FF5D5D"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="친구들이나 가족 또는 지인들끼리만의 챌린지를 개설 할 수 있습니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0C0000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="또 그 들과의 채팅방도 함께 개설되어 챌린지에 대한 이야기를 손쉽게 할 수 있습니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0F0101" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/search_hand" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="참가비 환급"
+                        android:textAlignment="center"
+                        android:textColor="#FF5D5D"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="챌린지에 대한 마일리지 뿐만 아니라 달성률에 따라 상금이 분배됩니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0C0000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="마일리지는 참여율에 따라 비율에 맞춰 환급됩니다 \n상금은 실패한 인원의 돈을 나눠 분배합니다(수수료 제외) "
+                        android:textAlignment="viewStart"
+                        android:textColor="#0F0101" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="150dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:srcCompat="@drawable/search_refurn" />
+
+                    <TextView
+                        android:id="@+id/aaaaa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="상금 전환"
+                        android:textAlignment="center"
+                        android:textColor="#FF5D5D"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="상금은 5000원 이상 시 마일리지로 전환가능하여 출금가능합니다."
+                        android:textAlignment="viewStart"
+                        android:textColor="#0F0101" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/loginfab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="80dp"
+        android:layout_marginRight="30dp"
+        app:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/search_account" />
+
+
+
+</FrameLayout>

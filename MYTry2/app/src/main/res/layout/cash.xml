@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="10dp"
+        android:background="#F8F8F8"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/search_content_back_btn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/main_back_button" />
+
+            <TextView
+                android:id="@+id/custom_top_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/handon600g"
+
+                android:text="마일리지"
+                android:textAlignment="center"
+                android:textColor="#0A0909"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mileage_y"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/xml_main_button_round"
+                android:gravity="center"
+                android:text="마일리지"
+                android:textAlignment="center"
+                android:textColor="#F7FAF7F7"
+                android:textColorHighlight="#00201D1D"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/cash_y"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/xml_main_button_round"
+                android:gravity="center"
+                android:text="상금"
+                android:textAlignment="center"
+                android:textColor="#FAF7F7"
+                android:textSize="24sp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/mileage"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginRight="2.5dp"
+                android:background="@drawable/xml_btn_s3"
+                android:gravity="center"
+                android:text="0원"
+                android:textColor="#F50E0000"
+
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/mycash"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/xml_btn_s3"
+                android:gravity="center"
+                android:text="0원"
+                android:textColor="#FA1D1B1B"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5_y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0"
+                android:text="이용 내역"
+                android:textColor="#F80C0000"
+                android:textSize="18sp" />
+
+            <ListView
+                android:id="@+id/cash_list"
+                android:layout_width="match_parent"
+                android:layout_height="485dp">
+            </ListView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="220dp"
+        android:visibility="invisible"
+        app:backgroundTint="#FFFFFF"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:srcCompat="@drawable/search_exchange" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="160dp"
+        android:visibility="invisible"
+        app:backgroundTint="#FFFFFF"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:srcCompat="@drawable/search_hand" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        app:backgroundTint="#FFFFFF"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:srcCompat="@drawable/search_kakao" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        app:backgroundTint="#FF5D5D"
+        app:srcCompat="@drawable/search_list" />
+
+
+
+</FrameLayout>

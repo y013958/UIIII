@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.study.springboot.dao.SeleeDao">
+     
+   <!-- 인증화면 출력 -->  
+   <select id="CertificateList" resultType="com.study.springboot.dto.CertificateDto">
+         select a.challenge_num challenge_num, b.certificate_check certificate_check, a.challenge_type challenge_type, a.challenge_title challenge_title, a.challenge_start challenge_start, a.challenge_end challenge_end, a.challenge_frequency challenge_frequency, a.challenge_time challenge_time, a.challenge_first_image challenge_firest_image
+      from challenge a, (select * from certificate where to_date(certificate_date, 'YY/MM/DD') in (SELECT to_date(SYSDATE, 'YY/MM/DD') FROM DUAL) and member_num = (select member_no from member where member_id = #{param1})) b 
+      where a.challenge_num = b.challenge_num order by certificate_check
+   </select>  
+
+   <select id="CertificateList_count" resultType="int">
+      select count(*) from certificate where challenge_num = #{param1} and member_num = (select member_no from member where member_id = #{param2})
+   </select>
+   
+   <select id="CertificateList_check_count" resultType="int">
+      select count(*) from certificate where challenge_num = #{param1} and member_num = (select member_no from member where member_id = #{param2}) and certificate_check = 1
+   </select>
+   
+   <!-- 피드 추가 -->
+   <insert id="feed_insert">
+         insert into feed(feed_num, member_id, challenge_num, challenge_title, feed_image, feed_comment)
+       values(feed_seq.nextval, #{param1}, #{param2}, #{param3}, #{param5}, #{param6})
+   </insert>
+   
+   <update id="certificate_update">
+         update certificate set certificate_check=certificate_check+1 
+         where challenge_num = #{param1} and member_num =(select member_no from member where member_id = #{param2}) and to_date(certificate_date, 'YY/MM/DD') in (SELECT to_date(SYSDATE, 'YY/MM/DD') FROM DUAL)
+   </update>
+   
+   <!-- 참가하기 -->
+   <insert id="record_insert">
+         insert into record(challenge_num, member_num, all_count, challenge_fee)
+       values(#{param1}, (select member_no from member where member_id = #{param2}), #{param3}, #{param4})
+   </insert>
+   
+   <insert id="certificate_insert">
+         insert into certificate(challenge_num, member_num, certificate_date)
+       values(#{param1}, (select member_no from member where member_id = #{param2}), #{param3})
+   </insert>
+   
+   <!-- 챌린지 정보 출력 -->
+   <select id="selectChallenge" resultType="com.study.springboot.dto.ChallengeDto">
+      select * from challenge where challenge_num = #{param1}
+   </select>
+   
+</mapper>

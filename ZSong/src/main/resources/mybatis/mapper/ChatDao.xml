@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.study.springboot.dao.ChatDao">
+	
+   <select id="getBox" resultType="com.study.springboot.dto.ChatDTO">
+		select * from manager_chat where chatID IN(select MAX(chatID) from manager_chat where toID = #{param1} or fromID = #{param1} group by fromID,  toID)
+   </select>
+	
+   <select id="getUnreadChat" resultType="int">
+		select count(chatID) from manager_chat where fromID = #{param1} and toID = #{param2} and chatRead = 0
+   </select>
+   
+   <select id="getAllUnreadChat" resultType="int">
+		select count(chatID) from manager_chat where toID = #{param1} and chatRead = 0
+   </select>
+   
+	<select id="getChatListByRecent" resultType="com.study.springboot.dto.ChatDTO">
+		select * from manager_chat where ((fromID = #{param1} and toID = #{param2}) or ( fromID = #{param2} and toID = #{param1} )) and chatID > (select max(chatID) - #{param3} from manager_chat where (fromID = #{param1} and toID = #{param2}) or ( fromID = #{param2} and toID = #{param1} )) order by chatTime
+	</select>
+	
+	<select id="getChatListById" resultType="com.study.springboot.dto.ChatDTO">
+		select * from manager_chat where ((fromID = #{param1} and toID = #{param2}) or (fromID =#{param2} and toID = #{param1})) and chatID > #{param3} order by chatTime
+	</select>
+	
+   <update id="readChat">
+		update manager_chat set chatRead = 1 where (fromID = #{param2} and toID = #{param1})
+   </update>
+   
+   <insert id="submit">
+		insert into manager_chat(chatID, fromID, toID, chatContent, chatRead) values(manager_chat_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
+   </insert>
+
+   <select id="findID" resultType="int">
+		select count(*) from manager where manager_id = #{param1}
+   </select>
+
+	<select id="manager_list" resultType="com.study.springboot.dto.ManagerDto">
+		select * from manager where manager_id != #{param1}
+	</select>
+
+</mapper>

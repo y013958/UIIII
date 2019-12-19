@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.ChallengeDao">
+
+	<!-- 공개 챌린지 -->
+	<insert id="PublicChallenge">
+		insert into challenge(challenge_num, challenge_title,
+		challenge_category,
+		challenge_type, challenge_detail)
+		values
+		(challenge_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+
+	<select id="PublicList"
+		resultType="com.study.springboot.dto.ChallengeDto">
+		select * from challenge where challenge_public = 0 order by
+		challenge_num <![CDATA[desc]]>
+	</select>
+
+
+	<!-- 댓글 리스트 뷰 -->
+	<insert id="CommentInsert">
+		insert into vote_comment(comment_num, challenge_num, member_id,
+		comment_content, commment_date)
+		values (vote_comment_seq.nextval,
+		#{param1}, #{param2}, #{param3}, <![CDATA[sysdate]]>)
+	</insert>
+
+	<select id="CommentSelect"
+		resultType="com.study.springboot.dto.CommentDto">
+		select * from vote_comment order by commment_date <![CDATA[asc]]>
+	</select>
+
+	<!-- 댓글 좋아요 투표 -->
+	<insert id="CommentLikeInsert">
+		insert into vote_comment_like(vote_like_num,
+		challenge_num, comment_num,
+		member_id)
+		values
+		(vote_comment_like_seq.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+
+	<delete id="CommentLikeDelete">
+		delete from vote_comment_like where member_id =
+		#{param1} and challenge_num
+		= #{param2} and comment_num = #{param3}
+	</delete>
+
+	<select id="CommentLikeExist" resultType="int">
+		select NVL(count(*),0)
+		from (
+		select * from vote_comment_like
+		where member_id like #{param1}
+		and challenge_num = #{param2} and
+		comment_num = #{param3} )
+	</select>
+
+	<select id="CommentLikeCount" resultType="int">
+		select NVL(count(*), 0)
+		from vote_comment_like where challenge_num =
+		#{param1} and comment_num
+		= #{param2}
+	</select>
+
+	<!-- 챌린지 투표 -->
+	<insert id="ChallengeLikeInsert">
+		insert into challenge_like(challenge_like,
+		challenge_num, member_id)
+		values (challenge_like_seq.nextval,
+		#{param1}, #{param2})
+	</insert>
+
+	<delete id="ChallengeLikeDelete">
+		delete from challenge_like where member_id =
+		#{param1} and challenge_num =
+		#{param2}
+	</delete>
+
+	<select id="ChallengeLikeExist" resultType="int">
+		select
+		NVL(count(*),0) from (
+		select * from challenge_like
+		where member_id like
+		#{param1} and challenge_num = #{param2} )
+	</select>
+
+	<select id="ChallengeLikeCount" resultType="int">
+		select NVL(count(*),
+		0) from challenge_like where challenge_num = #{param1}
+	</select>
+
+	<!-- 비공개 챌린지 -->
+	<insert id="PrivateChallenge">
+		insert into challenge(challenge_num, challenge_title,
+		challenge_category,
+		challenge_type, challenge_frequency,
+		challenge_start, challenge_end, challenge_fee, challenge_time,
+		challenge_public,
+		challenge_detail, challenge_first_image,
+		challenge_host)
+		values (challenge_seq.nextval, #{param1}, #{param2},
+		#{param3}, #{param4},
+		#{param5}, #{param6}, #{param7}, #{param8}, 1,
+		#{param9}, #{param10},
+		#{param11})
+	</insert>
+
+	<select id="PrivateList"
+		resultType="com.study.springboot.dto.ChallengeDto">
+		select * from challenge where challenge_public = 1 and challenge_host
+		like #{param1} order by challenge_num <![CDATA[desc]]>
+	</select>
+
+	<select id="PrivateModify"
+		resultType="com.study.springboot.dto.ChallengeDto">
+		select * from challenge where challenge_state f= 0 and
+		challenge_public
+		= 1 and challenge_host = #{param1} order by
+		challenge_num <![CDATA[desc]]>
+	</select>
+
+	<delete id="PrivateDelete">
+		delete from challenge where challenge_num = #{param1}
+	</delete>
+
+	<select id="PrivateSearchCode" resultType="com.study.springboot.dto.ChallengeDto">
+		select * from challenge where challenge_code like #{param1} and challenge_state = 1
+	</select>
+
+</mapper>

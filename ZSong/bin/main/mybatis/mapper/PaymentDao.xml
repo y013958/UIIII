@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.study.springboot.dao.PaymentDao">
+	
+   <select id="cash_mileage_list" resultType="com.study.springboot.dto.CashListDto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+						from ( select * 
+							   from cash_list 
+							   where (list_cash_state = 0 and list_cash_check = 0) or (list_cash_state = 1 and list_cash_check = 1)						   
+							   order by list_cash_num DESC) A  
+		       			where <![CDATA[rownum <=]]> #{param1} ) B 
+		where B.num <![CDATA[>=]]> #{param2}
+   </select>   
+   
+   <select id="cash_mileage_list_count" resultType="int">
+      select count(*) from cash_list where (list_cash_state = 0 and list_cash_check = 0) or (list_cash_state = 1 and list_cash_check = 1)
+   </select>
+   
+   
+   <select id="withdrawal_request_list" resultType="com.study.springboot.dto.CashListDto">
+		select * from ( select <![CDATA[rownum num]]>, A.* 
+						from ( select * 
+							   from cash_list 
+							   where list_cash_state = 0 and list_cash_check = 1
+							   order by list_cash_num ASC) A  
+		       			where <![CDATA[rownum <=]]> #{param1} ) B 
+		where B.num <![CDATA[>=]]> #{param2}
+   </select>   
+   
+   <select id="withdrawal_request_list_count" resultType="int">
+      select count(*) from cash_list where list_cash_state = 0 and list_cash_check = 1
+   </select>
+   
+   
+</mapper>
